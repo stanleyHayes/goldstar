@@ -40,7 +40,7 @@ const MobileHeader = () => {
                         <Link to="/" style={{textDecoration: 'none'}}>
                             <Typography
                                 sx={{color: 'secondary.main', fontWeight: 'bold'}}
-                                variant="body1">The Book Station</Typography>
+                                variant="body1">Gold Star</Typography>
                         </Link>
                     </Box>
                 </Stack>

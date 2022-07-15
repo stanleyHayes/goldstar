@@ -65,7 +65,7 @@ const HomePage = () => {
 
     return (
         <Layout>
-            <Box sx={{backgroundColor: 'background.paper', minHeight: '50vh', py: 5}}>
+            <Box sx={{backgroundColor: 'background.paper', minHeight: '50vh', py: 5, display: 'flex', alignItems: 'center'}}>
                 <Container>
                     <Grid container={true} spacing={4}>
                         <Grid item={true} xs={12} md={4}>
