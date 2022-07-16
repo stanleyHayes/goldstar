@@ -8,8 +8,6 @@ import {
     ExitToApp,
     Face,
     FeaturedPlayList,
-    KeyboardArrowDown,
-    KeyboardArrowUp,
     LightMode,
     MoreHoriz,
     Notifications,
@@ -20,7 +18,6 @@ import {selectUI, toggleTheme} from "../../redux/features/ui/ui-slice";
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import NavLink from "../shared/nav-link";
-import {useLocation} from "react-router";
 
 const DesktopHeader = () => {
 
@@ -40,24 +37,6 @@ const DesktopHeader = () => {
         setMenuOpen(false);
         setAnchorEl(null);
     }
-
-
-    const [freightMenuOpen, setForeignPoliciesMenuOpen] = useState(false);
-
-    const [freightAnchorEl, setForeignPoliciesAnchorEl] = useState(null);
-
-    const handleForeignPoliciesOpen = event => {
-        setForeignPoliciesMenuOpen(true);
-        setForeignPoliciesAnchorEl(event.currentTarget);
-    }
-
-
-    const handleForeignPoliciesClose = () => {
-        setForeignPoliciesMenuOpen(false);
-        setForeignPoliciesAnchorEl(null);
-    }
-
-    const {pathname} = useLocation();
 
     return (
         <Toolbar variant="regular">
@@ -87,60 +66,9 @@ const DesktopHeader = () => {
                         <NavLink label="Mineral Storage" path="/mineral-storage"
                                  active={activePath === '/mineral-storage'}/>
                         <NavLink label="Insurance" path="/insurance" active={activePath === '/insurance'}/>
-                        <Button
-                            endIcon={freightMenuOpen ? <KeyboardArrowUp/> : <KeyboardArrowDown/>}
-                            onClick={handleForeignPoliciesOpen}
-                            sx={{
-                                backgroundColor: pathname.startsWith('/freight') ? 'light.accent' : false,
-                                textTransform: 'capitalize',
-                                color: pathname.startsWith('/freight') ? 'secondary.main' : 'text.secondary'
-                            }}
-                            size="medium"
-                            variant="text">
-                            Freight
-                        </Button>
-
+                        <NavLink label="Freight" path="/freight" active={activePath === '/freight'}/>
                         <NavLink label="Tracking" path="/tracking" active={activePath === '/tracking'}/>
                         <NavLink label="Contact" path="/contact" active={activePath === '/contact'}/>
-
-                        <Menu
-                            onClose={handleForeignPoliciesClose}
-                            variant="menu"
-                            elevation={1}
-                            open={freightMenuOpen}
-                            anchorEl={freightAnchorEl}>
-                            <MenuItem>
-                                <Link style={{textDecoration: 'none', width: '100%'}}
-                                      to="/freight">
-                                    <NavLink
-                                        label="Freight"
-                                        active={pathname === '/freight'}
-                                        path="/freight"
-                                    />
-                                </Link>
-                            </MenuItem>
-                            <MenuItem>
-                                <Link style={{textDecoration: 'none', width: '100%'}}
-                                      to="/freight/sea">
-                                    <NavLink
-                                        label="Sea Freight"
-                                        active={pathname === '/freight/sea'}
-                                        path="/freight/sea"
-                                    />
-                                </Link>
-                            </MenuItem>
-                            <MenuItem>
-                                <Link
-                                    style={{textDecoration: 'none', width: '100%'}}
-                                    to="/freight/land-logistics">
-                                    <NavLink
-                                        label="Land Logistics"
-                                        active={pathname === '/freight/land-logistics'}
-                                        path="/freight/land-logistics"
-                                    />
-                                </Link>
-                            </MenuItem>
-                        </Menu>
                     </Stack>
 
                     <Stack direction="row" alignItems="center" spacing={2}>

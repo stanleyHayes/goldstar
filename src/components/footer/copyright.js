@@ -5,7 +5,7 @@ const Copyright = () => {
 
     return (
         <Box>
-            <Box sx={{padding: 4, backgroundColor: 'background.default'}}>
+            <Box sx={{padding: 4, backgroundColor: 'background.paper'}}>
                 <Container>
                     <Typography
                         gutterBottom={true}
@@ -28,7 +28,7 @@ const Copyright = () => {
                     </Typography>
                 </Container>
             </Box>
-            <Box sx={{padding: 4, backgroundColor: 'background.paper'}}>
+            <Box sx={{padding: 4, backgroundColor: 'background.default'}}>
                 <Container>
                     <Typography variant="body2" align="center" sx={{color: 'text.secondary'}}>
                         &copy;Copyright © 2015 Gold Star Security and Shipping Company Limited. All rights reserved.

@@ -6,7 +6,6 @@ import {Route, Routes} from "react-router";
 import {THEMES} from "./utils/themes";
 import HomePage from "./pages/home/home-page";
 import SafetyAndSecurityPage from "./pages/safety-and-security/safety-and-security-page";
-import SeaFreightPage from "./pages/freight/sea-freight-page";
 import VerifyAccountPage from "./pages/authentication/verify-account-page";
 import FreightPage from "./pages/freight/freight-page";
 import ContactPage from "./pages/contact/contact-page";
@@ -16,7 +15,6 @@ import ResetPasswordPage from "./pages/authentication/reset-password-page";
 import LoginPage from "./pages/authentication/login-page";
 import RegisterPage from "./pages/authentication/register-page";
 import VerifyLoginOtpPage from "./pages/authentication/verify-login-otp-page";
-import LandLogisticsPage from "./pages/freight/land-logistics-page";
 import VerificationAcknowledgmentPage from "./pages/authentication/verification-acknowledgment-page";
 import InsurancePage from "./pages/insurance/insurance-page";
 import MineralStoragePage from "./pages/mineral-storage/mineral-storage";
@@ -36,8 +34,6 @@ function App() {
                 <Route element={<MineralStoragePage/>} exact={true} path="/mineral-storage"/>
                 <Route element={<InsurancePage/>} exact={true} path="/insurance"/>
                 <Route element={<FreightPage/>} exact={true} path="/freight"/>
-                <Route element={<SeaFreightPage/>} exact={true} path="/freight/sea"/>
-                <Route element={<LandLogisticsPage/>} exact={true} path="/freight/land-logistics"/>
                 <Route element={<VerifyAccountPage/>} exact={true} path="/auth/verify/:token"/>
                 <Route element={<VerificationAcknowledgmentPage/>} exact={true} path="/account/verify/success"/>
                 <Route element={<RegisterPage/>} exact={true} path="/auth/register"/>
