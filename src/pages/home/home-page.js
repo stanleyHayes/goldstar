@@ -222,7 +222,7 @@ const HomePage = () => {
                             </Box>
                         </Grid>
                         <Grid item={true} xs={12} md={8}>
-                            <Typography sx={{color: 'secondary.main', mb: 2}} variant="h4">
+                            <Typography sx={{color: 'secondary.main', mb: 2}} variant="h5">
                                 Gold Star Security and Shipping Company Storage For Gold And Silver
                             </Typography>
                             <Typography variant="body2" sx={{color: 'text.secondary'}}>

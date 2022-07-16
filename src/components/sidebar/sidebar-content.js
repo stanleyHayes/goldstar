@@ -1,4 +1,4 @@
-import {Avatar, Box, Button, Divider, Stack, Typography} from "@mui/material";
+import {Avatar, Box, Button, Divider, SliderTrack, Stack, Typography} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
 import {closeDrawer, selectUI, toggleTheme} from "../../redux/features/ui/ui-slice";
 import {selectAuth} from "../../redux/features/auth/auth-slice";
@@ -7,7 +7,7 @@ import SidebarLink from "../shared/sidebar-link";
 
 import {
     ChevronRight,
-    Close,
+    Close, ContactPage, ContactPageOutlined,
     DarkMode,
     DeleteForever,
     ExitToApp,
@@ -19,9 +19,9 @@ import {
     HomeOutlined,
     Info,
     InfoOutlined,
-    LightMode,
+    LightMode, Lock, LockOutlined,
     Settings,
-    SettingsOutlined,
+    SettingsOutlined, SpatialTracking, SpatialTrackingOutlined, Storage, StorageOutlined, Telegram, TrackChanges,
     Videocam,
     VideocamOutlined,
     WatchLater,
@@ -143,11 +143,11 @@ const SidebarContent = () => {
                     />
 
                     <SidebarLink
-                        active={activePath === '/menus'}
-                        label="Trailers"
-                        path="/books"
-                        icon={activePath === '/menus' ? (
-                            <Videocam
+                        active={activePath === '/mineral-storage'}
+                        label="Mineral Storage"
+                        path="/mineral-storage"
+                        icon={activePath === '/mineral-storage' ? (
+                            <Storage
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
@@ -160,7 +160,39 @@ const SidebarContent = () => {
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
-                            <VideocamOutlined
+                            <StorageOutlined
+                                sx={{
+                                    cursor: 'pointer',
+                                    color: 'text.secondary',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
+                                    padding: 1,
+                                    fontSize: 18
+                                }}/>
+                        )}
+                    />
+
+                    <SidebarLink
+                        active={activePath === '/insurance'}
+                        label="Insurance"
+                        path="/insurance"
+                        icon={activePath === '/insurance' ? (
+                            <Lock
+                                sx={{
+                                    cursor: 'pointer',
+                                    color: 'secondary.main',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
+                                    padding: 1,
+                                    fontSize: 18,
+                                    backgroundColor: 'light.secondary'
+                                }}/>
+                        ) : (
+                            <LockOutlined
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',
@@ -175,11 +207,11 @@ const SidebarContent = () => {
                         }
                     />
                     <SidebarLink
-                        active={activePath === '/about'}
-                        label="About"
-                        path="/about"
-                        icon={activePath === '/about' ? (
-                            <Info
+                        active={activePath === '/tracking'}
+                        label="Tracking"
+                        path="/tracking"
+                        icon={activePath === '/tracking' ? (
+                            <SliderTrack
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
@@ -192,7 +224,71 @@ const SidebarContent = () => {
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
-                            <InfoOutlined
+                            <SpatialTrackingOutlined
+                                sx={{
+                                    cursor: 'pointer',
+                                    color: 'text.secondary',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
+                                    padding: 1,
+                                    fontSize: 18
+                                }}/>
+                        )
+                        }
+                    />
+                    <SidebarLink
+                        active={activePath === '/freight'}
+                        label="Freight"
+                        path="/freight"
+                        icon={activePath === '/freight' ? (
+                            <Telegram
+                                sx={{
+                                    cursor: 'pointer',
+                                    color: 'secondary.main',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
+                                    padding: 1,
+                                    fontSize: 18,
+                                    backgroundColor: 'light.secondary'
+                                }}/>
+                        ) : (
+                            <Telegram
+                                sx={{
+                                    cursor: 'pointer',
+                                    color: 'text.secondary',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
+                                    padding: 1,
+                                    fontSize: 18
+                                }}/>
+                        )
+                        }
+                    />
+                    <SidebarLink
+                        active={activePath === '/contact'}
+                        label="Contact"
+                        path="/contact"
+                        icon={activePath === '/contact' ? (
+                            <ContactPage
+                                sx={{
+                                    cursor: 'pointer',
+                                    color: 'secondary.main',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
+                                    padding: 1,
+                                    fontSize: 18,
+                                    backgroundColor: 'light.secondary'
+                                }}/>
+                        ) : (
+                            <ContactPageOutlined
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',

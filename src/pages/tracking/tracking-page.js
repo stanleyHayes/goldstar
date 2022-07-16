@@ -12,7 +12,6 @@ import {
     InputAdornment,
     InputLabel,
     OutlinedInput,
-    Stack,
     Typography
 } from "@mui/material";
 import boxes from "../../assets/images/Shipping-Boxes-Around-Globe-Feature.jpg";
@@ -178,16 +177,17 @@ const TrackingPage = () => {
                         </Grid>
                         <Grid item={true} xs={12} md={6}>
                             <Card variant="outlined" sx={{height: '100%', borderStyle: 'dashed', borderWidth: 2}}>
-                                <CardContent sx={{height: '100%'}}>
-                                    <Stack
-                                        justifyContent="center"
-                                        alignItems="center"
-                                        sx={{height: '100%'}}>
-                                        <Typography align="center" sx={{color: 'text.primary', mb: 2}} variant="h6">
-                                            Shipping Details will appear here
-                                        </Typography>
-                                    </Stack>
-                                </CardContent>
+                                <Box
+                                    sx={{
+                                        height: '100%',
+                                        display: 'flex',
+                                        justifyContent: "center",
+                                        alignItems: "center"
+                                    }}>
+                                    <Typography sx={{color: 'text.primary'}} variant="h6">
+                                        Shipping Details will appear here
+                                    </Typography>
+                                </Box>
                             </Card>
                         </Grid>
                     </Grid>
