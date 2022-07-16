@@ -29,7 +29,9 @@ import {useSnackbar} from "notistack";
 import {useFormik} from "formik";
 import {useNavigate} from "react-router";
 import {AUTH_ACTION_CREATORS, selectAuth} from "../../redux/features/auth/auth-slice";
-import {MailOutline, Visibility, VisibilityOff} from "@mui/icons-material";
+import {ConfirmationNumber, MailOutline, Visibility, VisibilityOff} from "@mui/icons-material";
+import banner from "./../../assets/images/banner.jpg";
+import Overlay from "../../components/shared/overlay";
 
 const HomePage = () => {
 
@@ -63,8 +65,121 @@ const HomePage = () => {
 
     const theme = useTheme();
 
+    const trackingFormik = useFormik({
+        initialValues: {
+            tracking: '',
+        },
+        onSubmit: (values, {resetForm, setSubmitting}) => {
+
+        },
+        validateOnBlur: true,
+        validateOnChange: true,
+        validationSchema: yup.object({
+            tracking: yup.string().required('tracking required'),
+        })
+    });
+
+
     return (
         <Layout>
+            <Overlay
+                children={
+                    <Box sx={{height: '100%', display: 'flex', alignItems: 'center'}}>
+                        <Container>
+                            <Grid container={true} spacing={4} alignItems="center">
+                                <Grid item={true} xs={12} md={6}>
+                                    <Typography variant="h4" sx={{color: 'white', mb: 2}}>
+                                        Gold Star Shipping and Security
+                                    </Typography>
+                                    <form autoComplete="off" onSubmit={trackingFormik.handleSubmit}>
+                                        <Card variant="outlined">
+                                            <CardContent>
+                                                {authError && (
+                                                    <Alert severity="error">
+                                                        <AlertTitle>{authError}</AlertTitle>
+                                                    </Alert>
+                                                )}
+
+                                                {authMessage && (
+                                                    <Alert severity="error">
+                                                        <AlertTitle>{authMessage}</AlertTitle>
+                                                    </Alert>
+                                                )}
+
+                                                <Box mb={4}>
+                                                    <Typography
+                                                        mb={1} variant="body2"
+                                                        sx={{color: 'secondary.main', fontWeight: 'bold'}}>
+                                                        Tracking Number
+                                                    </Typography>
+                                                    <FormControl fullWidth={true} variant="outlined">
+                                                        <InputLabel
+                                                            htmlFor="tracking">Tracking Number</InputLabel>
+                                                        <OutlinedInput
+                                                            fullWidth={true}
+                                                            value={formik.values.tracking}
+                                                            id="tracking"
+                                                            name="tracking"
+                                                            type="tracking"
+                                                            endAdornment={
+                                                                <InputAdornment
+                                                                    position="end">
+                                                                    <ConfirmationNumber
+                                                                        sx={{
+                                                                            cursor: 'pointer',
+                                                                            color: 'secondary.main',
+                                                                            padding: 1,
+                                                                            fontSize: 24,
+                                                                        }}
+                                                                    />
+                                                                </InputAdornment>
+                                                            }
+                                                            error={trackingFormik.touched.tracking && trackingFormik.errors.tracking}
+                                                            onChange={trackingFormik.handleChange}
+                                                            onBlur={trackingFormik.handleBlur}
+                                                            placeholder="Enter shipment tracking number"
+                                                            required={true}
+                                                            label="Tracking Number"
+                                                            size="medium"
+                                                            margin="dense"
+                                                        />
+                                                        {trackingFormik.touched.tracking && trackingFormik.errors.tracking && (
+                                                            <FormHelperText
+                                                                error={true}>
+                                                                {formik.errors.tracking}
+                                                            </FormHelperText>
+                                                        )}
+                                                    </FormControl>
+                                                </Box>
+
+                                                <LoadingButton
+                                                    type="submit"
+                                                    size="large"
+                                                    color="secondary"
+                                                    sx={{
+                                                        textTransform: 'capitalize',
+                                                        py: 1.2
+                                                    }}
+                                                    fullWidth={true}
+                                                    loadingPosition="start"
+                                                    startIcon={authLoading ?
+                                                        <CircularProgress color="secondary"/> : null}
+                                                    loadingIndicator={authLoading ?
+                                                        <CircularProgress color="secondary"/> : null}
+                                                    loading={authLoading}
+                                                    variant="contained"
+                                                    disableElevation={true}>
+                                                    {authLoading ? 'Tracking...' : 'Track'}
+                                                </LoadingButton>
+                                            </CardContent>
+                                        </Card>
+                                    </form>
+                                </Grid>
+                            </Grid>
+                        </Container>
+                    </Box>}
+                image={banner}
+                backgroundColor="#000000"/>
             <Box sx={{backgroundColor: 'background.paper', minHeight: '50vh', py: 5, display: 'flex', alignItems: 'center'}}>
                 <Container>
                     <Grid container={true} spacing={4}>
