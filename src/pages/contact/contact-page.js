@@ -39,8 +39,11 @@ const ContactPage = () => {
 
     const formik = useFormik({
         initialValues: {
+            name: '',
+            subject: '',
             email: '',
-            password: '',
+            phone: '',
+            message: '',
         },
         onSubmit: (values, {resetForm, setSubmitting}) => {
             dispatch(AUTH_ACTION_CREATORS.login({values, navigate, resetForm, showMessage, setSubmitting}));
@@ -50,6 +53,8 @@ const ContactPage = () => {
         validationSchema: yup.object({
             email: yup.string().email('Invalid email').required('email required'),
             name: yup.string().required('name required'),
+            phone: yup.string().phone('Invalid phone').required('phone required'),
+            subject: yup.string().required('subject required'),
             message: yup.string().required('Message required'),
         })
     });
@@ -116,7 +121,7 @@ const ContactPage = () => {
                                                 borderRadius: '25%',
                                                 backgroundColor: 'light.secondary'
                                             }}/>
-                                            <Link href="mailto://info@goldstar.com." underline="none">
+                                            <Link href="mailto://info@goldstarsshipping.com." underline="none">
                                                 <Typography
                                                     gutterBottom={true} variant="body2"
                                                     sx={{color: 'text.secondary'}}>
@@ -196,7 +201,7 @@ const ContactPage = () => {
                                                 borderRadius: '25%',
                                                 backgroundColor: 'light.secondary'
                                             }}/>
-                                            <Link href="mailto://info@goldstar.com." underline="none">
+                                            <Link href="mailto://info@goldstarsshipping.com." underline="none">
                                                 <Typography
                                                     gutterBottom={true} variant="body2"
                                                     sx={{color: 'text.secondary'}}>
@@ -278,11 +283,11 @@ const ContactPage = () => {
                                                 borderRadius: '25%',
                                                 backgroundColor: 'light.secondary'
                                             }}/>
-                                            <Link href="mailto://info@goldstar.com." underline="none">
+                                            <Link href="mailto://info@goldstarsshipping.com." underline="none">
                                                 <Typography
                                                     gutterBottom={true} variant="body2"
                                                     sx={{color: 'text.secondary'}}>
-                                                    info@goldstar.com.
+                                                    info@goldstarsshipping.com.
                                                 </Typography>
                                             </Link>
                                         </Stack>
@@ -358,11 +363,11 @@ const ContactPage = () => {
                                                 borderRadius: '25%',
                                                 backgroundColor: 'light.secondary'
                                             }}/>
-                                            <Link href="mailto://info@goldstar.com." underline="none">
+                                            <Link href="mailto://info@goldstarsshipping.com." underline="none">
                                                 <Typography
                                                     gutterBottom={true} variant="body2"
                                                     sx={{color: 'text.secondary'}}>
-                                                    info@goldstar.com.
+                                                    info@goldstarsshipping.com.
                                                 </Typography>
                                             </Link>
                                         </Stack>
