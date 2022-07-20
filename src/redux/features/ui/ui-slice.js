@@ -34,12 +34,12 @@ const uiSlice = createSlice({
             state.themeVariant = state.themeVariant === 'dark' ? 'light' : 'dark';
         },
         toggleViewMode: (state) => {
-            localStorage.setItem(CONSTANTS.GOLD_STAR_VIEW_MODE, JSON.stringify(state.viewMode === 'grid' ? 'list': 'grid'));
-            state.viewMode = state.viewMode === 'grid' ? 'list': 'grid'
+            localStorage.setItem(CONSTANTS.GOLD_STAR_VIEW_MODE, JSON.stringify(state.viewMode === 'grid' ? 'list' : 'grid'));
+            state.viewMode = state.viewMode === 'grid' ? 'list' : 'grid'
         }
     }
 });
 
-export const {changePath, changeLanguage, closeDrawer, openDrawer, toggleTheme, toggleViewMode} = uiSlice.actions;
+export const {changePath, closeDrawer, openDrawer, toggleTheme} = uiSlice.actions;
 export const selectUI = state => state.ui;
 export default uiSlice.reducer;

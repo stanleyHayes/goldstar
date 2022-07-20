@@ -120,7 +120,7 @@ const ContactPage = () => {
                                                 <Typography
                                                     gutterBottom={true} variant="body2"
                                                     sx={{color: 'text.secondary'}}>
-                                                    info@goldstar.com.
+                                                    info@goldstarshipping.com.
                                                 </Typography>
                                             </Link>
                                         </Stack>
@@ -179,11 +179,11 @@ const ContactPage = () => {
                                                 borderRadius: '25%',
                                                 backgroundColor: 'light.secondary'
                                             }}/>
-                                            <Link href="tel://+1 425-333-8744" underline="none">
+                                            <Link href="tel://+1 443-341-1848" underline="none">
                                                 <Typography
                                                     gutterBottom={true} variant="body2"
                                                     sx={{color: 'text.secondary'}}>
-                                                    +1 425-333-8744
+                                                    +1 443-341-1848
                                                 </Typography>
                                             </Link>
                                         </Stack>
@@ -200,7 +200,7 @@ const ContactPage = () => {
                                                 <Typography
                                                     gutterBottom={true} variant="body2"
                                                     sx={{color: 'text.secondary'}}>
-                                                    info@goldstar.com.
+                                                    info@goldstarsshipping.com.
                                                 </Typography>
                                             </Link>
                                         </Stack>
@@ -261,11 +261,11 @@ const ContactPage = () => {
                                                 borderRadius: '25%',
                                                 backgroundColor: 'light.secondary'
                                             }}/>
-                                            <Link href="tel://+233 0275298609" underline="none">
+                                            <Link href="tel://+233 54-948-7681" underline="none">
                                                 <Typography
                                                     gutterBottom={true} variant="body2"
                                                     sx={{color: 'text.secondary'}}>
-                                                    +233 0275298609
+                                                    +233 54-948-7681
                                                 </Typography>
                                             </Link>
                                         </Stack>

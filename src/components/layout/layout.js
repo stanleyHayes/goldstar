@@ -29,6 +29,7 @@ const Layout = ({children}) => {
             </Box>
 
             <SwipeableDrawer
+                anchor="left"
                 onOpen={() => dispatch(openDrawer())}
                 open={drawerOpen}
                 onClose={() => dispatch(closeDrawer())}>

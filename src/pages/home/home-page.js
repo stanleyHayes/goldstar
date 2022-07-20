@@ -92,7 +92,7 @@ const HomePage = () => {
                                         Gold Star Shipping and Security
                                     </Typography>
                                     <form autoComplete="off" onSubmit={trackingFormik.handleSubmit}>
-                                        <Card variant="outlined">
+                                        <Card variant="outlined" sx={{backgroundColor: 'background.transparent'}}>
                                             <CardContent>
                                                 {authError && (
                                                     <Alert severity="error">
