@@ -251,7 +251,7 @@ const ContactPage = () => {
                                                     sx={{color: 'text.secondary'}}>
                                                     22 Cown Ave.
                                                     PO Box 136.
-                                                    Tema Accra
+                                                    Kotoka International Airport
                                                     Ghana
                                                 </Typography>
                                             </Link>
