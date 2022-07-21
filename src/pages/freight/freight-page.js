@@ -3,10 +3,19 @@ import {Box, CardMedia, Container, Stack, Typography} from "@mui/material";
 import airFreight from "../../assets/images/unitedship-78-1.jpg";
 import seaFreight from "../../assets/images/unitedship-73-1.jpg";
 import landLogistics from "../../assets/images/unitedship-76-1.jpg";
+import Banner from "../../components/shared/banner";
+import banner from "../../assets/images/logistics.jpg";
 
 const FreightPage = () => {
     return (
         <Layout>
+            <Box>
+                <Banner
+                    title="Freight Services"
+                    links={[{label: 'Home', link: '/'}, {label: 'Freight', link: '/freight'}]}
+                    backgroundImage={banner}
+                />
+            </Box>
             <Box sx={{
                 minHeight: '50vh',
                 display: 'flex',
@@ -158,7 +167,8 @@ const FreightPage = () => {
                 minHeight: '50vh',
                 backgroundColor: 'background.paper',
                 display: 'flex',
-                alignItems: 'center'
+                alignItems: 'center',
+                flexDirection: {xs: 'column', lg: 'row'}
             }}>
                 <Box sx={{flex: 1, minHeight: '100%'}}>
                     <CardMedia

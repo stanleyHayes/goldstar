@@ -21,6 +21,8 @@ import {useSelector} from "react-redux";
 import {selectAuth} from "../../redux/features/auth/auth-slice";
 import {useFormik} from "formik";
 import * as yup from "yup";
+import Banner from "../../components/shared/banner";
+import banner from "../../assets/images/tracking.jpg";
 
 const TrackingPage = () => {
 
@@ -44,6 +46,13 @@ const TrackingPage = () => {
 
     return (
         <Layout>
+            <Box>
+                <Banner
+                    title="Tracking"
+                    links={[{label: 'Home', link: '/'}, {label: 'Tracking', link: '/tracking'}]}
+                    backgroundImage={banner}
+                />
+            </Box>
             <Box sx={{minHeight: '50vh', backgroundColor: 'background.paper'}}>
                 <Box sx={{alignItems: 'center', display: 'flex', flexDirection: {xs: 'column', lg: 'row'}}}>
                     <Box sx={{flex: 1, py: 4}}>

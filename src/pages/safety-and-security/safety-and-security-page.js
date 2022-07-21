@@ -1,9 +1,18 @@
 import Layout from "../../components/layout/layout";
 import {Box, Container, Stack, Typography} from "@mui/material";
+import Banner from "../../components/shared/banner";
+import banner from "./../../assets/images/security.jpg";
 
 const SafetyAndSecurityPage = () => {
     return (
         <Layout>
+            <Box>
+                <Banner
+                    title="Safety & Security"
+                    links={[{label: 'Home', link: '/'}, {label: 'Security', link: '/security'}]}
+                    backgroundImage={banner}
+                />
+            </Box>
             <Box sx={{
                 minHeight: '50vh',
                 display: 'flex',

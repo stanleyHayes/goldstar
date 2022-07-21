@@ -1,10 +1,19 @@
 import Layout from "../../components/layout/layout";
 import {Box, CardMedia, Container, Stack, Typography} from "@mui/material";
 import safe from "../../assets/images/oggif-2.jpg";
+import Banner from "../../components/shared/banner";
+import banner from "./../../assets/images/insurnce.jpg";
 
 const InsurancePage = () => {
     return (
         <Layout>
+            <div>
+                <Banner
+                    title="Insurance"
+                    links={[{label: 'Home', link: '/'}, {label: 'Insurance', link: '/insurance'}]}
+                    backgroundImage={banner}
+                />
+            </div>
             <Box sx={{minHeight: '50vh', backgroundColor: 'background.paper'}}>
                 <Box sx={{alignItems: 'center', display: 'flex', flexDirection: {xs: 'column', lg: 'row'}}}>
                     <Container sx={{flex: 1, py: 4}}>

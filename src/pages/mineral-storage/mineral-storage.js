@@ -1,9 +1,18 @@
 import Layout from "../../components/layout/layout";
 import {Box, Container, Stack, Typography} from "@mui/material";
+import Banner from "../../components/shared/banner";
+import banner from "./../../assets/images/storage.jpg";
 
 const MineralStoragePage = () => {
     return (
         <Layout>
+            <Box>
+                <Banner
+                    title="Mineral Storage"
+                    links={[{label: 'Home', link: '/'}, {label: 'Storage', link: '/mineral-storage'}]}
+                    backgroundImage={banner}
+                />
+            </Box>
             <Box sx={{
                 minHeight: '50vh',
                 display: 'flex',

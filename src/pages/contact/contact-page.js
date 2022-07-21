@@ -1,5 +1,7 @@
 import Layout from "../../components/layout/layout";
 import {
+    Alert,
+    AlertTitle,
     Box,
     Card,
     CardContent,
@@ -23,7 +25,9 @@ import {AUTH_ACTION_CREATORS, selectAuth} from "../../redux/features/auth/auth-s
 import {useSnackbar} from "notistack";
 import {useFormik} from "formik";
 import * as yup from "yup";
-import {Alert, AlertTitle, LoadingButton} from "@mui/lab";
+import "yup-phone";
+import {LoadingButton} from "@mui/lab";
+
 
 const ContactPage = () => {
 
@@ -86,7 +90,7 @@ const ContactPage = () => {
                                                 borderRadius: '25%',
                                                 backgroundColor: 'light.secondary'
                                             }}/>
-                                            <Link href="tel://+233 30 2738 473" underline="none">
+                                            <Link href="#" underline="none">
                                                 <Typography
                                                     gutterBottom={true} variant="body2"
                                                     sx={{color: 'text.secondary'}}>
@@ -245,7 +249,7 @@ const ContactPage = () => {
                                                 borderRadius: '25%',
                                                 backgroundColor: 'light.secondary'
                                             }}/>
-                                            <Link href="tel://+233 30 2738 473" underline="none">
+                                            <Link href="#" underline="none">
                                                 <Typography
                                                     gutterBottom={true} variant="body2"
                                                     sx={{color: 'text.secondary'}}>
@@ -331,7 +335,7 @@ const ContactPage = () => {
                                                 <Typography
                                                     gutterBottom={true} variant="body2"
                                                     sx={{color: 'text.secondary'}}>
-                                                    Kaivosrinteentie 4 ,
+                                                    Kaivosrinteentie 4,
                                                     01610 Vantaa,
                                                 </Typography>
                                             </Link>
@@ -530,7 +534,7 @@ const ContactPage = () => {
                                                         multiline={true}
                                                         minRows={5}
                                                     />
-                                                    {formik.touched.password && formik.errors.message && (
+                                                    {formik.touched.message && formik.errors.message && (
                                                         <FormHelperText
                                                             error={true}>
                                                             {formik.errors.message}
