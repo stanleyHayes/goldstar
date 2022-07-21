@@ -1,6 +1,8 @@
 import {configureStore} from "@reduxjs/toolkit";
 import uiReducer from "../features/ui/ui-slice";
 import authReducer from "../features/auth/auth-slice";
+import trackingReducer from "../features/tracking/tracking-slice";
+import messageReducer from "../features/message/message-slice";
 
 import {CONSTANTS} from "../../utils/constants";
 
@@ -22,6 +24,8 @@ const store = configureStore({
     reducer: {
         ui: uiReducer,
         auth: authReducer,
+        tracking: trackingReducer,
+        message: messageReducer
     },
     preloadedState: {
         ui: {themeVariant, activePath: '/', drawerOpen: false, viewMode},

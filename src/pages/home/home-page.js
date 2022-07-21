@@ -32,6 +32,7 @@ import {AUTH_ACTION_CREATORS, selectAuth} from "../../redux/features/auth/auth-s
 import {ConfirmationNumber, MailOutline, Visibility, VisibilityOff} from "@mui/icons-material";
 import banner from "./../../assets/images/banner.jpg";
 import Overlay from "../../components/shared/overlay";
+import {selectTracking, TRACKING_ACTION_CREATORS} from "../../redux/features/tracking/tracking-slice";
 
 const HomePage = () => {
 
@@ -39,6 +40,7 @@ const HomePage = () => {
     const navigate = useNavigate();
 
     const {authLoading, authError, authMessage} = useSelector(selectAuth);
+    const {shipmentLoading} = useSelector(selectTracking);
     const {enqueueSnackbar} = useSnackbar();
 
     const showMessage = (message, options) => {
@@ -70,7 +72,7 @@ const HomePage = () => {
             tracking: '',
         },
         onSubmit: (values, {resetForm, setSubmitting}) => {
-
+            dispatch(TRACKING_ACTION_CREATORS.track({trackingID: values.tracking, resetForm, setSubmitting, navigate, showMessage}));
         },
         validateOnBlur: true,
         validateOnChange: true,
@@ -134,7 +136,7 @@ const HomePage = () => {
                                                                     />
                                                                 </InputAdornment>
                                                             }
-                                                            error={trackingFormik.touched.tracking && trackingFormik.errors.tracking}
+                                                            error={Boolean(trackingFormik.touched.tracking && trackingFormik.errors.tracking)}
                                                             onChange={trackingFormik.handleChange}
                                                             onBlur={trackingFormik.handleBlur}
                                                             placeholder="Enter shipment tracking number"
@@ -146,7 +148,7 @@ const HomePage = () => {
                                                         {trackingFormik.touched.tracking && trackingFormik.errors.tracking && (
                                                             <FormHelperText
                                                                 error={true}>
-                                                                {formik.errors.tracking}
+                                                                {trackingFormik.errors.tracking}
                                                             </FormHelperText>
                                                         )}
                                                     </FormControl>
@@ -162,14 +164,14 @@ const HomePage = () => {
                                                     }}
                                                     fullWidth={true}
                                                     loadingPosition="start"
-                                                    startIcon={authLoading ?
+                                                    startIcon={shipmentLoading ?
                                                         <CircularProgress color="secondary"/> : null}
-                                                    loadingIndicator={authLoading ?
+                                                    loadingIndicator={shipmentLoading ?
                                                         <CircularProgress color="secondary"/> : null}
-                                                    loading={authLoading}
+                                                    loading={shipmentLoading}
                                                     variant="contained"
                                                     disableElevation={true}>
-                                                    {authLoading ? 'Tracking...' : 'Track'}
+                                                    {shipmentLoading ? 'Tracking...' : 'Track'}
                                                 </LoadingButton>
                                             </CardContent>
                                         </Card>

@@ -12,6 +12,7 @@ import {
     Grid,
     InputAdornment,
     InputLabel,
+    LinearProgress,
     Link,
     OutlinedInput,
     Stack,
@@ -20,21 +21,21 @@ import {
 import {Call, LocationOn, Mail, MailOutline, PersonOutline} from "@mui/icons-material";
 import contactLogo from "./../../assets/images/contact-us.png";
 import {useDispatch, useSelector} from "react-redux";
-import {useNavigate} from "react-router";
-import {AUTH_ACTION_CREATORS, selectAuth} from "../../redux/features/auth/auth-slice";
+import {MESSAGE_ACTION_CREATORS, selectMessage} from "../../redux/features/message/message-slice";
 import {useSnackbar} from "notistack";
 import {useFormik} from "formik";
 import * as yup from "yup";
 import "yup-phone";
 import {LoadingButton} from "@mui/lab";
+import Banner from "../../components/shared/banner";
+import banner from "../../assets/images/contact.jpg";
 
 
 const ContactPage = () => {
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
-    const {authLoading, authError, authMessage} = useSelector(selectAuth);
+    const {messageLoading, messageError, messageMessage} = useSelector(selectMessage);
     const {enqueueSnackbar} = useSnackbar();
 
     const showMessage = (message, options) => {
@@ -50,7 +51,7 @@ const ContactPage = () => {
             message: '',
         },
         onSubmit: (values, {resetForm, setSubmitting}) => {
-            dispatch(AUTH_ACTION_CREATORS.login({values, navigate, resetForm, showMessage, setSubmitting}));
+            dispatch(MESSAGE_ACTION_CREATORS.sendMessage({values, resetForm, showMessage, setSubmitting}));
         },
         validateOnBlur: true,
         validateOnChange: true,
@@ -65,6 +66,13 @@ const ContactPage = () => {
 
     return (
         <Layout>
+            <Box>
+                <Banner
+                    title="Contact"
+                    links={[{label: 'Home', link: '/'}, {label: 'Contact', link: '/message'}]}
+                    backgroundImage={banner}
+                />
+            </Box>
             <Box sx={{py: 5}}>
                 <Container>
                     <Typography variant="h4" sx={{color: 'text.primary', fontWeight: 'bold', mb: 2}}>
@@ -403,19 +411,20 @@ const ContactPage = () => {
                     <Grid container={true} spacing={4}>
                         <Grid item={true} xs={12} md={6}>
                             <Card variant="elevation" elevation={0}>
+                                {messageLoading && <LinearProgress variant="query" color="secondary"/>}
                                 <CardContent>
                                     <Stack direction="column" spacing={2}>
                                         <form autoComplete="off" onSubmit={formik.handleSubmit}>
 
-                                            {authError && (
+                                            {messageError && (
                                                 <Alert severity="error">
-                                                    <AlertTitle>{authError}</AlertTitle>
+                                                    <AlertTitle>{messageError}</AlertTitle>
                                                 </Alert>
                                             )}
 
-                                            {authMessage && (
+                                            {messageMessage && (
                                                 <Alert severity="error">
-                                                    <AlertTitle>{authMessage}</AlertTitle>
+                                                    <AlertTitle>{messageMessage}</AlertTitle>
                                                 </Alert>
                                             )}
 
@@ -553,14 +562,14 @@ const ContactPage = () => {
                                                 }}
                                                 fullWidth={true}
                                                 loadingPosition="start"
-                                                startIcon={authLoading ?
+                                                startIcon={messageLoading ?
                                                     <CircularProgress color="secondary"/> : null}
-                                                loadingIndicator={authLoading ?
+                                                loadingIndicator={messageLoading ?
                                                     <CircularProgress color="secondary"/> : null}
-                                                loading={authLoading}
+                                                loading={messageLoading}
                                                 variant="contained"
                                                 disableElevation={true}>
-                                                {authLoading ? 'Sending...' : 'Send message'}
+                                                {messageLoading ? 'Sending...' : 'Send message'}
                                             </LoadingButton>
                                         </form>
                                     </Stack>

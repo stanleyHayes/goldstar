@@ -277,10 +277,10 @@ const SidebarContent = () => {
                         }
                     />
                     <SidebarLink
-                        active={activePath === '/contact'}
+                        active={activePath === '/message'}
                         label="Contact"
                         path="/contact"
-                        icon={activePath === '/contact' ? (
+                        icon={activePath === '/message' ? (
                             <ContactPage
                                 sx={{
                                     cursor: 'pointer',

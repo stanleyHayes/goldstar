@@ -68,7 +68,7 @@ const DesktopHeader = () => {
                         <NavLink label="Insurance" path="/insurance" active={activePath === '/insurance'}/>
                         <NavLink label="Freight" path="/freight" active={activePath === '/freight'}/>
                         <NavLink label="Tracking" path="/tracking" active={activePath === '/tracking'}/>
-                        <NavLink label="Contact" path="/contact" active={activePath === '/contact'}/>
+                        <NavLink label="Contact" path="/contact" active={activePath === '/message'}/>
                     </Stack>
 
                     <Stack direction="row" alignItems="center" spacing={2}>

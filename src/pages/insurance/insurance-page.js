@@ -7,13 +7,13 @@ import banner from "./../../assets/images/insurnce.jpg";
 const InsurancePage = () => {
     return (
         <Layout>
-            <div>
+            <Box>
                 <Banner
                     title="Insurance"
                     links={[{label: 'Home', link: '/'}, {label: 'Insurance', link: '/insurance'}]}
                     backgroundImage={banner}
                 />
-            </div>
+            </Box>
             <Box sx={{minHeight: '50vh', backgroundColor: 'background.paper'}}>
                 <Box sx={{alignItems: 'center', display: 'flex', flexDirection: {xs: 'column', lg: 'row'}}}>
                     <Container sx={{flex: 1, py: 4}}>
