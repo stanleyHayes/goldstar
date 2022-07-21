@@ -167,7 +167,7 @@ const RegisterPage = () => {
                                 </Stack>
 
                                 <Typography variant="h4" sx={{color: 'secondary.main', mb: 2}}>
-                                    The Book Station
+                                    Gold Star
                                 </Typography>
 
 

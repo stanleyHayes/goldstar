@@ -116,7 +116,7 @@ const VerifyOtpPage = () => {
                                             <Link to="/" style={{textDecoration: 'none'}}>
                                                 <Typography
                                                     sx={{color: 'text.primary'}}
-                                                    variant="h4">The Book Station</Typography>
+                                                    variant="h4">Gold Star</Typography>
                                             </Link>
                                         </Stack>
                                     </Grid>

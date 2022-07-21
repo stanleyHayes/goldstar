@@ -84,7 +84,7 @@ const ForgotPasswordPage = () => {
                                         </Box>
 
                                         <Typography mb={2} variant="h4" sx={{color: 'secondary.main'}}>
-                                            The Book Station
+                                            Gold Star
                                         </Typography>
 
                                         <Stack direction="row" spacing={2}>

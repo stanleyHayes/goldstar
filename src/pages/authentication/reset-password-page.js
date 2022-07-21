@@ -76,7 +76,7 @@ const ResetPasswordPage = () => {
                     <form onSubmit={formik.handleSubmit}>
                         <Stack direction="column" spacing={3}>
                             <Typography mb={2} variant="h4" sx={{color: 'secondary.main'}}>
-                                The Book Station
+                                Gold Star
                             </Typography>
 
                             <Stack mb={2} direction="row" spacing={2}>

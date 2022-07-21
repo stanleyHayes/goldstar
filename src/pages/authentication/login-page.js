@@ -133,7 +133,7 @@ const LoginPage = () => {
                                         </Typography>
 
                                         <Typography mb={2} variant="h5" sx={{color: 'secondary.main'}}>
-                                            The Book Station
+                                            Gold Star
                                         </Typography>
 
                                         <Stack mb={4} direction="row" spacing={2} alignItems="center">

@@ -47,7 +47,7 @@ const VerificationAcknowledgmentPage = () => {
                         Welcome to
                     </Typography>
                     <Typography mb={3} variant="h4" sx={{color: 'secondary.main'}}>
-                        The Book Station
+                        Gold Star
                     </Typography>
                     <Typography mb={4} variant="body1" sx={{color: 'text.secondary', fontWeight: 400}}>
                         Need a book ?
