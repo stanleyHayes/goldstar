@@ -69,7 +69,7 @@ const ContactPage = () => {
             <Box>
                 <Banner
                     title="Contact"
-                    links={[{label: 'Home', link: '/'}, {label: 'Contact', link: '/message'}]}
+                    links={[{label: 'Home', link: '/'}, {label: 'Contact', link: '/contact'}]}
                     backgroundImage={banner}
                 />
             </Box>
