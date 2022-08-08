@@ -19,6 +19,7 @@ import VerificationAcknowledgmentPage from "./pages/authentication/verification-
 import InsurancePage from "./pages/insurance/insurance-page";
 import MineralStoragePage from "./pages/mineral-storage/mineral-storage";
 import TrackingPage from "./pages/tracking/tracking-page";
+import TrackingDetailPage from "./pages/tracking/tracking-detail-page";
 
 function App() {
     const {themeVariant} = useSelector(selectUI);
@@ -30,6 +31,7 @@ function App() {
                 <Route element={<HomePage/>} exact={true} path="/"/>
                 <Route element={<ContactPage/>} exact={true} path="/contact"/>
                 <Route element={<TrackingPage/>} exact={true} path="/tracking"/>
+                <Route element={<TrackingDetailPage/>} exact={true} path="/tracking/:tracking"/>
                 <Route element={<SafetyAndSecurityPage/>} exact={true} path="/safety-and-security"/>
                 <Route element={<MineralStoragePage/>} exact={true} path="/mineral-storage"/>
                 <Route element={<InsurancePage/>} exact={true} path="/insurance"/>

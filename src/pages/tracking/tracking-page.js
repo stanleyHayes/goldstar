@@ -8,17 +8,19 @@ import {
     CardMedia,
     CircularProgress,
     Container,
+    Divider,
     FormControl,
     FormHelperText,
     Grid,
     InputAdornment,
     InputLabel,
     OutlinedInput,
+    Stack,
     Typography
 } from "@mui/material";
 import boxes from "../../assets/images/Shipping-Boxes-Around-Globe-Feature.jpg";
 import {Alert, AlertTitle, LoadingButton} from "@mui/lab";
-import {ConfirmationNumber, Details, Share} from "@mui/icons-material";
+import {ConfirmationNumber, InfoOutlined, Share} from "@mui/icons-material";
 import {useDispatch, useSelector} from "react-redux";
 import {useFormik} from "formik";
 import * as yup from "yup";
@@ -45,7 +47,12 @@ const TrackingPage = () => {
             tracking: '',
         },
         onSubmit: (values, {resetForm, setSubmitting}) => {
-            dispatch(TRACKING_ACTION_CREATORS.track({trackingID: values.tracking, resetForm, setSubmitting, showMessage}));
+            dispatch(TRACKING_ACTION_CREATORS.track({
+                trackingID: values.tracking,
+                resetForm,
+                setSubmitting,
+                showMessage
+            }));
         },
         validateOnBlur: true,
         validateOnChange: true,
@@ -54,6 +61,13 @@ const TrackingPage = () => {
         })
     });
 
+    const handleShare = () => {
+        window.navigator.clipboard.writeText(`https://tracking.goldstarshipping.com/${shipment.tracking}`).then(() => {
+            enqueueSnackbar('Tracking link copied', {variant: 'success'});
+        }).catch(error => {
+            enqueueSnackbar(error, {variant: 'error'});
+        });
+    }
 
     return (
         <Layout>
@@ -111,9 +125,8 @@ const TrackingPage = () => {
                         <Grid item={true} xs={12} md={6}>
                             <Box sx={{}}>
                                 <form autoComplete="off" onSubmit={formik.handleSubmit}>
-                                    <Card variant="outlined">
+                                    <Card variant="outlined" sx={{height: '100%'}}>
                                         <CardContent>
-
                                             {shipmentError && (
                                                 <Alert sx={{mb: 2}} severity="error">
                                                     <AlertTitle>{shipmentError}</AlertTitle>
@@ -121,7 +134,7 @@ const TrackingPage = () => {
                                             )}
 
                                             {shipmentMessage && (
-                                                <Alert sx={{mb: 2}} severity="error">
+                                                <Alert sx={{mb: 2}} severity="success">
                                                     <AlertTitle>{shipmentMessage}</AlertTitle>
                                                 </Alert>
                                             )}
@@ -200,31 +213,83 @@ const TrackingPage = () => {
                             {shipment ? (
                                 <Card variant="outlined" sx={{height: '100%', borderStyle: 'dashed', borderWidth: 2}}>
                                     <CardContent>
-
+                                        <Stack direction="column" spacing={2}>
+                                            <Box>
+                                                <Typography variant="body1" sx={{color: 'text.primary'}}>
+                                                    Package
+                                                </Typography>
+                                                {shipment && shipment.packages.map(p => {
+                                                    return (
+                                                        <Box key={p._id}>
+                                                            <Typography variant="body2" sx={{color: 'text.secondary'}}>
+                                                                {`${p.content} x ${p.quantity}`}
+                                                            </Typography>
+                                                        </Box>
+                                                    )
+                                                })}
+                                            </Box>
+                                            <Box>
+                                                <Typography variant="body1" sx={{color: 'text.primary'}}>
+                                                    Tracking Number
+                                                </Typography>
+                                                <Typography
+                                                    variant="body2"
+                                                    sx={{color: 'text.secondary'}}>
+                                                    {shipment && shipment.tracking}
+                                                </Typography>
+                                            </Box>
+                                            <Box>
+                                                <Typography variant="body1" sx={{color: 'text.primary'}}>
+                                                    Delivered to
+                                                </Typography>
+                                                <Box>
+                                                    <Typography variant="body2"
+                                                                sx={{color: 'text.secondary'}}>
+                                                        {shipment && shipment.recipient && shipment.recipient.name}
+                                                    </Typography>
+                                                    <Typography variant="body2" sx={{color: 'text.secondary'}}>
+                                                        ({shipment && shipment.recipient && shipment.recipient.phone})
+                                                    </Typography>
+                                                    <Typography
+                                                        variant="body2"
+                                                        sx={{color: 'text.secondary'}}>
+                                                        {shipment && shipment.destination && `${shipment.destination.addressLine1} ${shipment.destination.addressLine2 ? shipment.destination.addressLine2 : ''}`}
+                                                    </Typography>
+                                                </Box>
+                                            </Box>
+                                        </Stack>
                                     </CardContent>
+                                    <Divider variant="fullWidth" light={true}/>
                                     <CardActions>
-                                        <Grid container={true}>
-                                            <Grid item={true} xs={6}>
+                                        <Stack sx={{width: '100%'}} direction="row" justifyContent="space-between" alignItems="center">
+                                            <Box sx={{flexGrow: 1}}>
                                                 <Button
+                                                    onClick={handleShare}
+                                                    color="secondary"
+                                                    size="medium"
+                                                    sx={{textTransform: 'capitalize', flex: 1}}
                                                     fullWidth={true}
                                                     startIcon={<Share/>}
                                                     variant="text">
-                                                    Copy
+                                                    Share
                                                 </Button>
-                                            </Grid>
-                                            <Grid item={true} xs={6}>
+                                            </Box>
+                                            <Box sx={{ flexGrow: 1}}>
                                                 <Link
                                                     to={`/tracking/${shipment.tracking}`}
                                                     style={{textDecoration: 'none'}}>
                                                     <Button
+                                                        color="secondary"
+                                                        size="medium"
+                                                        sx={{textTransform: 'capitalize'}}
                                                         fullWidth={true}
-                                                        startIcon={<Details/>}
+                                                        startIcon={<InfoOutlined/>}
                                                         variant="text">
                                                         View Details
                                                     </Button>
                                                 </Link>
-                                            </Grid>
-                                        </Grid>
+                                            </Box>
+                                        </Stack>
                                     </CardActions>
                                 </Card>
                             ) : (

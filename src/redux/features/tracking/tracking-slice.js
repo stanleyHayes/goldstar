@@ -13,8 +13,12 @@ const track = createAsyncThunk(
            }, {rejectWithValue}) => {
         try {
             const response = await TRACKING_API.track(trackingID);
-            resetForm();
-            setSubmitting(false);
+            if(resetForm){
+                resetForm();
+            }
+            if(setSubmitting){
+                setSubmitting(false);
+            }
             if (navigate) {
                 navigate(`/tracking/${trackingID}`);
             }

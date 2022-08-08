@@ -143,6 +143,7 @@ const HomePage = () => {
                                                             required={true}
                                                             label="Tracking Number"
                                                             size="medium"
+                                                            color="secondary"
                                                             margin="dense"
                                                         />
                                                         {trackingFormik.touched.tracking && trackingFormik.errors.tracking && (
