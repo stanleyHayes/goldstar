@@ -2,7 +2,7 @@ import {createTheme} from "@mui/material";
 
 const lightTheme = createTheme({
     typography: {
-        fontFamily: 'Gilroy'
+        fontFamily: 'EuclidCircularB, Gilroy'
     },
     palette: {
         primary: {
@@ -28,13 +28,13 @@ const lightTheme = createTheme({
         mode: "light"
     },
     shape: {
-        borderRadius: 8
+        borderRadius: 4
     }
 });
 
 const darkTheme = createTheme({
     typography: {
-        fontFamily: 'Gilroy'
+        fontFamily: 'EuclidCircularB, Gilroy'
     },
     palette: {
         primary: {
@@ -60,7 +60,7 @@ const darkTheme = createTheme({
         mode: 'dark'
     },
     shape: {
-        borderRadius: 8
+        borderRadius: 4
     }
 });
 
