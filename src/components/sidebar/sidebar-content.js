@@ -106,8 +106,11 @@ const SidebarContent = () => {
                                     borderTopLeftRadius: 32,
                                     backgroundColor: 'light.secondary'
                                 }}>
-                                <Typography sx={{color: 'secondary.main'}}
-                                            variant="h2">{UTILS.getInitials(authData.fullName)}</Typography>
+                                <Typography
+                                    sx={{color: 'secondary.main'}}
+                                    variant="h2">
+                                    {UTILS.getInitials(authData.fullName)}
+                                </Typography>
                             </Avatar>
                             <Typography sx={{color: 'text.primary'}} variant="h6">{authData.fullName}</Typography>
                             <Typography sx={{color: 'text.primary'}} variant="body2">{authData.username}</Typography>

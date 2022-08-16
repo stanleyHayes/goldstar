@@ -37,4 +37,5 @@ const SERVICES = [
         image: cargo
     }
 ]
+
 export const GOLD_STAR_DATA = {SERVICES};
