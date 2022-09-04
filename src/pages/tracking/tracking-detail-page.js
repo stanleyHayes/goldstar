@@ -30,6 +30,7 @@ import currencyFormatter from "currency-formatter";
 import {SpatialTracking} from "@mui/icons-material";
 import moment from "moment";
 import {VerticalTimeline, VerticalTimelineElement} from "react-vertical-timeline-component";
+
 const TrackingDetailPage = () => {
     const {tracking} = useParams();
 
@@ -347,43 +348,42 @@ const TrackingDetailPage = () => {
                                 <VerticalTimeline animate={true}>
                                     {shipment?.stages.map((stage, index) => {
                                         return (
-                                            <Box key={index}>
-                                                <VerticalTimelineElement
-                                                    icon={<SpatialTracking color="secondary"/>}
-                                                    date={
-                                                        <Avatar sx={{backgroundColor: 'light.secondary'}}>
-                                                            <Typography variant="h4" sx={{color: 'secondary.main'}}>
-                                                                {stage.order}
-                                                            </Typography>
-                                                        </Avatar>
-                                                    } contentStyle={{
-                                                    background: theme.palette.background.paper,
-                                                    borderRadius: 16
-                                                }}>
-                                                    <Card variant="elevation" elevation={0}>
-                                                        <CardContent>
-                                                            <Typography
-                                                                sx={{color: 'text.secondary'}} gutterBottom={true}
-                                                                variant="body2">
-                                                                {stage.name}
-                                                            </Typography>
-                                                            <Divider sx={{my: 1}} variant="fullWidth" light={true}/>
-                                                            <Typography
-                                                                sx={{color: 'text.secondary'}}
-                                                                variant="body2">
-                                                                {stage.location}
-                                                            </Typography>
-                                                            <Divider sx={{my: 1}} variant="fullWidth" light={true}/>
-                                                            <Typography
-                                                                sx={{color: 'text.secondary'}}
-                                                                gutterBottom={true}
-                                                                variant="body2">
-                                                                {moment(stage.date).fromNow()}
-                                                            </Typography>
-                                                        </CardContent>
-                                                    </Card>
-                                                </VerticalTimelineElement>
-                                            </Box>
+                                            <VerticalTimelineElement
+                                                key={index}
+                                                icon={<SpatialTracking color="secondary"/>}
+                                                date={
+                                                    <Avatar sx={{backgroundColor: 'light.secondary'}}>
+                                                        <Typography variant="h4" sx={{color: 'secondary.main'}}>
+                                                            {stage.order}
+                                                        </Typography>
+                                                    </Avatar>
+                                                } contentStyle={{
+                                                background: theme.palette.background.paper,
+                                                borderRadius: 16
+                                            }}>
+                                                <Card variant="elevation" elevation={0}>
+                                                    <CardContent>
+                                                        <Typography
+                                                            sx={{color: 'text.secondary'}} gutterBottom={true}
+                                                            variant="body2">
+                                                            {stage.name}
+                                                        </Typography>
+                                                        <Divider sx={{my: 1}} variant="fullWidth" light={true}/>
+                                                        <Typography
+                                                            sx={{color: 'text.secondary'}}
+                                                            variant="body2">
+                                                            {stage.location}
+                                                        </Typography>
+                                                        <Divider sx={{my: 1}} variant="fullWidth" light={true}/>
+                                                        <Typography
+                                                            sx={{color: 'text.secondary'}}
+                                                            gutterBottom={true}
+                                                            variant="body2">
+                                                            {moment(stage.date).fromNow()}
+                                                        </Typography>
+                                                    </CardContent>
+                                                </Card>
+                                            </VerticalTimelineElement>
                                         )
                                     })}
                                 </VerticalTimeline>
