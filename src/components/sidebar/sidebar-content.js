@@ -1,52 +1,35 @@
-import {Avatar, Box, Button, Divider, SliderTrack, Stack, Typography} from "@mui/material";
+import {Box, SliderTrack, Stack} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
 import {closeDrawer, selectUI, toggleTheme} from "../../redux/features/ui/ui-slice";
-import {selectAuth} from "../../redux/features/auth/auth-slice";
-import {UTILS} from "../../utils/utils";
 import SidebarLink from "../shared/sidebar-link";
 
 import {
-    ChevronRight,
     Close,
     ContactPage,
     ContactPageOutlined,
-    DarkMode,
-    DeleteForever,
-    ExitToApp,
-    Face,
-    FaceOutlined,
-    FeaturedPlayList,
-    FeaturedPlayListOutlined,
+    DarkMode, Escalator, EscalatorOutlined,
     Home,
     HomeOutlined,
     LightMode,
     Lock,
     LockOutlined,
-    Settings,
-    SettingsOutlined,
-    SpatialTrackingOutlined,
     Storage,
     StorageOutlined,
-    Telegram,
-    Videocam,
-    VideocamOutlined,
-    WatchLater,
-    WatchLaterOutlined
+    Telegram
 } from "@mui/icons-material";
-import {red} from "@mui/material/colors";
-import {Link} from "react-router-dom";
 import React from "react";
+import {useLocation} from "react-router";
 
 const SidebarContent = () => {
 
-    const {activePath, themeVariant} = useSelector(selectUI);
-    const {authData} = useSelector(selectAuth);
+    const {themeVariant} = useSelector(selectUI);
 
     const dispatch = useDispatch();
+    const {pathname} = useLocation();
 
     return (
         <Box sx={{minHeight: '100vh', minWidth: "80vw", py: 3}}>
-            <Stack divider={<Divider variant="fullWidth"/>} direction="column" spacing={2}>
+            <Stack direction="column" spacing={2}>
                 <Stack sx={{px: 4}} direction="row" alignItems="center" justifyContent="space-between">
                     {themeVariant === 'light' ? (
                         <DarkMode
@@ -59,7 +42,7 @@ const SidebarContent = () => {
                                 borderBottomLeftRadius: 32,
                                 borderTopLeftRadius: 32,
                                 padding: 1,
-                                fontSize: 18,
+                                fontSize: 32,
                                 backgroundColor: 'light.secondary'
                             }}/>
                     ) : (
@@ -73,9 +56,10 @@ const SidebarContent = () => {
                                 borderBottomLeftRadius: 32,
                                 borderTopLeftRadius: 32,
                                 padding: 1,
-                                fontSize: 18,
+                                fontSize: 32,
                                 backgroundColor: 'light.secondary'
-                            }}/>
+                            }}
+                        />
                     )}
 
                     <Close
@@ -88,42 +72,18 @@ const SidebarContent = () => {
                             borderBottomLeftRadius: 32,
                             borderTopLeftRadius: 32,
                             padding: 1,
-                            fontSize: 18,
+                            fontSize: 32,
                             backgroundColor: 'light.secondary'
-                        }}/>
+                        }}
+                    />
 
                 </Stack>
-                {
-                    authData && (
-                        <Stack sx={{px: 4}} direction="column" spacing={1}>
-                            <Avatar
-                                sx={{
-                                    width: 100,
-                                    height: 100,
-                                    borderTopRightRadius: 32,
-                                    borderBottomRightRadius: 0,
-                                    borderBottomLeftRadius: 32,
-                                    borderTopLeftRadius: 32,
-                                    backgroundColor: 'light.secondary'
-                                }}>
-                                <Typography
-                                    sx={{color: 'secondary.main'}}
-                                    variant="h2">
-                                    {UTILS.getInitials(authData.fullName)}
-                                </Typography>
-                            </Avatar>
-                            <Typography sx={{color: 'text.primary'}} variant="h6">{authData.fullName}</Typography>
-                            <Typography sx={{color: 'text.primary'}} variant="body2">{authData.username}</Typography>
-                        </Stack>
-                    )
-                }
-
                 <Stack direction="column">
                     <SidebarLink
-                        active={activePath === '/'}
+                        active={pathname === '/'}
                         label="Home"
                         path="/"
-                        icon={activePath === '/' ? (
+                        icon={pathname === '/' ? (
                             <Home
                                 sx={{
                                     cursor: 'pointer',
@@ -133,7 +93,7 @@ const SidebarContent = () => {
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
                                     padding: 1,
-                                    fontSize: 18,
+                                    fontSize: 32,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
@@ -146,16 +106,17 @@ const SidebarContent = () => {
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
                                     padding: 1,
-                                    fontSize: 18
-                                }}/>
+                                    fontSize: 32
+                                }}
+                            />
                         )}
                     />
 
                     <SidebarLink
-                        active={activePath === '/mineral-storage'}
+                        active={pathname === '/mineral-storage'}
                         label="Mineral Storage"
                         path="/mineral-storage"
-                        icon={activePath === '/mineral-storage' ? (
+                        icon={pathname === '/mineral-storage' ? (
                             <Storage
                                 sx={{
                                     cursor: 'pointer',
@@ -165,7 +126,7 @@ const SidebarContent = () => {
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
                                     padding: 1,
-                                    fontSize: 18,
+                                    fontSize: 32,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
@@ -178,16 +139,16 @@ const SidebarContent = () => {
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
                                     padding: 1,
-                                    fontSize: 18
+                                    fontSize: 32
                                 }}/>
                         )}
                     />
 
                     <SidebarLink
-                        active={activePath === '/insurance'}
+                        active={pathname === '/insurance'}
                         label="Insurance"
                         path="/insurance"
-                        icon={activePath === '/insurance' ? (
+                        icon={pathname === '/insurance' ? (
                             <Lock
                                 sx={{
                                     cursor: 'pointer',
@@ -197,7 +158,7 @@ const SidebarContent = () => {
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
                                     padding: 1,
-                                    fontSize: 18,
+                                    fontSize: 32,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
@@ -210,17 +171,18 @@ const SidebarContent = () => {
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
                                     padding: 1,
-                                    fontSize: 18
+                                    fontSize: 32
                                 }}/>
                         )
                         }
                     />
+
                     <SidebarLink
-                        active={activePath === '/tracking'}
+                        active={pathname === '/tracking'}
                         label="Tracking"
                         path="/tracking"
-                        icon={activePath === '/tracking' ? (
-                            <SliderTrack
+                        icon={pathname === '/tracking' ? (
+                            <Escalator
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
@@ -229,11 +191,11 @@ const SidebarContent = () => {
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
                                     padding: 1,
-                                    fontSize: 18,
+                                    fontSize: 32,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
-                            <SpatialTrackingOutlined
+                            <EscalatorOutlined
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',
@@ -242,16 +204,17 @@ const SidebarContent = () => {
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
                                     padding: 1,
-                                    fontSize: 18
+                                    fontSize: 32
                                 }}/>
                         )
                         }
                     />
+
                     <SidebarLink
-                        active={activePath === '/freight'}
+                        active={pathname === '/freight'}
                         label="Freight"
                         path="/freight"
-                        icon={activePath === '/freight' ? (
+                        icon={pathname === '/freight' ? (
                             <Telegram
                                 sx={{
                                     cursor: 'pointer',
@@ -261,7 +224,7 @@ const SidebarContent = () => {
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
                                     padding: 1,
-                                    fontSize: 18,
+                                    fontSize: 32,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
@@ -274,16 +237,18 @@ const SidebarContent = () => {
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
                                     padding: 1,
-                                    fontSize: 18
-                                }}/>
+                                    fontSize: 32
+                                }}
+                            />
                         )
                         }
                     />
+
                     <SidebarLink
-                        active={activePath === '/message'}
+                        active={pathname === '/message'}
                         label="Contact"
                         path="/contact"
-                        icon={activePath === '/message' ? (
+                        icon={pathname === '/message' ? (
                             <ContactPage
                                 sx={{
                                     cursor: 'pointer',
@@ -293,7 +258,7 @@ const SidebarContent = () => {
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
                                     padding: 1,
-                                    fontSize: 18,
+                                    fontSize: 32,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
@@ -306,280 +271,11 @@ const SidebarContent = () => {
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
                                     padding: 1,
-                                    fontSize: 18
+                                    fontSize: 32
                                 }}/>
-                        )
-                        }
+                        )}
                     />
                 </Stack>
-                {authData ? (
-                    <React.Fragment>
-                        <Stack direction="column">
-                            <Link to="/trailer/new" style={{textDecoration: 'none', marginLeft: 8, marginRight: 8}}>
-                                <Button
-                                    color="secondary"
-                                    fullWidth={true}
-                                    sx={{
-                                        textTransform: 'capitalize',
-                                        borderTopRightRadius: 32,
-                                        borderBottomRightRadius: 0,
-                                        borderBottomLeftRadius: 32,
-                                        borderTopLeftRadius: 32,
-                                    }}
-                                    variant="contained"
-                                    disableElevation={true}>
-                                    Create Trailer
-                                </Button>
-                            </Link>
-                        </Stack>
-                        <Stack direction="column">
-                            <SidebarLink
-                                active={activePath === '/profile'}
-                                label="Profile"
-                                path="/profile"
-                                icon={activePath === '/profile' ? (
-                                    <Face
-                                        sx={{
-                                            cursor: 'pointer',
-                                            color: 'secondary.main',
-                                            borderTopRightRadius: 32,
-                                            borderBottomRightRadius: 0,
-                                            borderBottomLeftRadius: 32,
-                                            borderTopLeftRadius: 32,
-                                            padding: 1,
-                                            fontSize: 18,
-                                            backgroundColor: 'light.secondary'
-                                        }}/>
-                                ) : (
-                                    <FaceOutlined
-                                        sx={{
-                                            cursor: 'pointer',
-                                            color: 'text.secondary',
-                                            borderTopRightRadius: 32,
-                                            borderBottomRightRadius: 0,
-                                            borderBottomLeftRadius: 32,
-                                            borderTopLeftRadius: 32,
-                                            padding: 1,
-                                            fontSize: 18
-                                        }}/>
-                                )}
-                            />
-
-                            <SidebarLink
-                                active={activePath === '/settings'}
-                                label="Settings"
-                                path="/settings"
-                                icon={activePath === '/settings' ? (
-                                    <Settings
-                                        sx={{
-                                            cursor: 'pointer',
-                                            color: 'secondary.main',
-                                            borderTopRightRadius: 32,
-                                            borderBottomRightRadius: 0,
-                                            borderBottomLeftRadius: 32,
-                                            borderTopLeftRadius: 32,
-                                            padding: 1,
-                                            fontSize: 18,
-                                            backgroundColor: 'light.secondary'
-                                        }}/>
-                                ) : (
-                                    <SettingsOutlined
-                                        sx={{
-                                            cursor: 'pointer',
-                                            color: 'text.secondary',
-                                            borderTopRightRadius: 32,
-                                            borderBottomRightRadius: 0,
-                                            borderBottomLeftRadius: 32,
-                                            borderTopLeftRadius: 32,
-                                            padding: 1,
-                                            fontSize: 18
-                                        }}/>
-                                )
-                                }
-                            />
-
-                            <SidebarLink
-                                active={activePath === '/plans/me'}
-                                label="My Trailers"
-                                path="/trailers/me"
-                                icon={activePath === '/plans/me' ? (
-                                    <Videocam
-                                        sx={{
-                                            cursor: 'pointer',
-                                            color: 'secondary.main',
-                                            borderTopRightRadius: 32,
-                                            borderBottomRightRadius: 0,
-                                            borderBottomLeftRadius: 32,
-                                            borderTopLeftRadius: 32,
-                                            padding: 1,
-                                            fontSize: 18,
-                                            backgroundColor: 'light.secondary'
-                                        }}/>
-                                ) : (
-                                    <VideocamOutlined
-                                        sx={{
-                                            cursor: 'pointer',
-                                            color: 'text.secondary',
-                                            borderTopRightRadius: 32,
-                                            borderBottomRightRadius: 0,
-                                            borderBottomLeftRadius: 32,
-                                            borderTopLeftRadius: 32,
-                                            padding: 1,
-                                            fontSize: 18
-                                        }}/>
-                                )}
-                            />
-
-                            <SidebarLink
-                                active={activePath === '/watch-later'}
-                                label="Watch Later"
-                                path="/watch-later"
-                                icon={activePath === '/watch-later' ? (
-                                    <WatchLater
-                                        sx={{
-                                            cursor: 'pointer',
-                                            color: 'secondary.main',
-                                            borderTopRightRadius: 32,
-                                            borderBottomRightRadius: 0,
-                                            borderBottomLeftRadius: 32,
-                                            borderTopLeftRadius: 32,
-                                            padding: 1,
-                                            fontSize: 18,
-                                            backgroundColor: 'light.secondary'
-                                        }}/>
-                                ) : (
-                                    <WatchLaterOutlined
-                                        sx={{
-                                            cursor: 'pointer',
-                                            color: 'text.secondary',
-                                            borderTopRightRadius: 32,
-                                            borderBottomRightRadius: 0,
-                                            borderBottomLeftRadius: 32,
-                                            borderTopLeftRadius: 32,
-                                            padding: 1,
-                                            fontSize: 18
-                                        }}/>
-                                )}
-                            />
-
-
-                            <SidebarLink
-                                active={activePath === '/playlists'}
-                                label="Playlists"
-                                path="/playlists"
-                                icon={activePath === '/playlists' ? (
-                                    <FeaturedPlayList
-                                        sx={{
-                                            cursor: 'pointer',
-                                            color: 'secondary.main',
-                                            borderTopRightRadius: 32,
-                                            borderBottomRightRadius: 0,
-                                            borderBottomLeftRadius: 32,
-                                            borderTopLeftRadius: 32,
-                                            padding: 1,
-                                            fontSize: 18,
-                                            backgroundColor: 'light.secondary'
-                                        }}/>
-                                ) : (
-                                    <FeaturedPlayListOutlined
-                                        sx={{
-                                            cursor: 'pointer',
-                                            color: 'text.secondary',
-                                            borderTopRightRadius: 32,
-                                            borderBottomRightRadius: 0,
-                                            borderBottomLeftRadius: 32,
-                                            borderTopLeftRadius: 32,
-                                            padding: 1,
-                                            fontSize: 18
-                                        }}/>
-                                )}
-                            />
-
-                        </Stack>
-                        <Stack direction="column">
-                            <Stack direction="row" justifyContent="space-between" alignItems="center">
-                                <Button
-                                    size="large"
-                                    sx={{
-                                        px: 3,
-                                        justifyContent: 'flex-start',
-                                        color: 'secondary.main',
-                                        textTransform: 'capitalize'
-                                    }}
-                                    fullWidth={true}
-                                    variant="text"
-                                    startIcon={
-                                        <ExitToApp
-                                            sx={{
-                                                cursor: 'pointer',
-                                                color: 'secondary.main',
-                                                padding: 1,
-                                                fontSize: 18
-                                            }}/>}>
-                                    Logout
-                                </Button>
-
-                                <ChevronRight
-                                    sx={{
-                                        cursor: 'pointer',
-                                        color: 'secondary.main',
-                                        borderRadius: '1%',
-                                        padding: 1,
-                                        fontSize: 18,
-                                    }}/>
-                            </Stack>
-                            <Stack direction="row" justifyContent="space-between" alignItems="center">
-                                <Button
-                                    size="large"
-                                    sx={{
-                                        px: 3,
-                                        justifyContent: 'flex-start',
-                                        color: red[800],
-                                        textTransform: 'capitalize'
-                                    }}
-                                    fullWidth={true}
-                                    variant="text"
-                                    startIcon={
-                                        <DeleteForever
-                                            sx={{
-                                                cursor: 'pointer',
-                                                color: red[800],
-                                                padding: 1,
-                                                fontSize: 18
-                                            }}/>}>
-                                    Disable Account
-                                </Button>
-                                <ChevronRight
-                                    sx={{
-                                        cursor: 'pointer',
-                                        color: red[800],
-                                        borderRadius: '1%',
-                                        padding: 1,
-                                        fontSize: 18,
-                                    }}/>
-                            </Stack>
-                        </Stack>
-                    </React.Fragment>
-                ) : (
-                    <Link
-                        to="/auth/login"
-                        style={{textDecoration: 'none', marginLeft: 8, marginRight: 8}}>
-                        <Button
-                            color="secondary"
-                            fullWidth={true}
-                            sx={{
-                                textTransform: 'capitalize',
-                                borderTopRightRadius: 32,
-                                borderBottomRightRadius: 0,
-                                borderBottomLeftRadius: 32,
-                                borderTopLeftRadius: 32,
-                            }}
-                            variant="contained"
-                            disableElevation={true}>
-                            Login
-                        </Button>
-                    </Link>
-                )}
             </Stack>
         </Box>
     )

@@ -5,25 +5,24 @@ const Copyright = () => {
 
     return (
         <Box>
-            <Box sx={{py: 2,backgroundColor: 'background.default'}}>
+            <Box sx={{py: 2, backgroundColor: 'background.dark'}}>
                 <Container>
                     <Typography
-                        gutterBottom={true}
                         variant="body2"
                         align="center"
-                        sx={{color: 'text.primary'}}>
+                        sx={{color: 'text.secondary', mb: 4}}>
                         Gold Star Security and Shipping Company Ltd. Vault storage keeps your investments secure
                         .Providing
                         the
                         most prestigious offerings in Customer Service, Security, Privacy, Gold exchange and Exclusivity
                         to
                         high
-                        end clientele.GET IN TOUCH WITH US NOW We are always ready to respond to your enquiries 24/7
+                        end clientele. GET IN TOUCH WITH US NOW! We are always ready to respond to your enquiries 24/7
                         online.
                         Feel free to write to us when you need us..
                         Secure Your Valuables Today! Get in Touch
                     </Typography>
-                    <Typography variant="h6" align="center" sx={{color: 'text.primary'}}>
+                    <Typography variant="h6" align="center" sx={{color: 'text.primary', textTransform: "uppercase"}}>
                         Secure Your Valuables Today! Get in Touch
                     </Typography>
                 </Container>

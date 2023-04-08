@@ -1,7 +1,7 @@
 import './App.css';
 import {useSelector} from "react-redux";
 import {selectUI} from "./redux/features/ui/ui-slice";
-import {ThemeProvider} from "@mui/material";
+import {CssBaseline, ThemeProvider} from "@mui/material";
 import {Route, Routes} from "react-router";
 import {THEMES} from "./utils/themes";
 import HomePage from "./pages/home/home-page";
@@ -27,6 +27,7 @@ function App() {
 
     return (
         <ThemeProvider theme={theme}>
+            <CssBaseline enableColorScheme={true} />
             <Routes>
                 <Route element={<HomePage/>} exact={true} path="/"/>
                 <Route element={<ContactPage/>} exact={true} path="/contact"/>

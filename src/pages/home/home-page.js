@@ -1,6 +1,9 @@
 import Layout from "../../components/layout/layout";
 import {
+    Alert,
+    AlertTitle,
     Box,
+    Button,
     Card,
     CardContent,
     CardMedia,
@@ -14,7 +17,7 @@ import {
     OutlinedInput,
     Stack,
     Typography,
-    useTheme
+    useTheme,
 } from "@mui/material";
 import {GOLD_STAR_DATA} from "../../utils/data";
 import Service from "../../components/shared/service";
@@ -22,7 +25,6 @@ import facility from "./../../assets/images/facility.jpg";
 import safe from "./../../assets/images/oggif-2.jpg";
 import {Link} from "react-router-dom";
 import {useState} from "react";
-import {Alert, AlertTitle, LoadingButton} from "@mui/lab";
 import * as yup from "yup";
 import {useDispatch, useSelector} from "react-redux";
 import {useSnackbar} from "notistack";
@@ -33,6 +35,7 @@ import {ConfirmationNumber, MailOutline, Visibility, VisibilityOff} from "@mui/i
 import banner from "./../../assets/images/banner.jpg";
 import Overlay from "../../components/shared/overlay";
 import {selectTracking, TRACKING_ACTION_CREATORS} from "../../redux/features/tracking/tracking-slice";
+import {LoadingButton} from "@mui/lab";
 
 const HomePage = () => {
 
@@ -72,7 +75,13 @@ const HomePage = () => {
             tracking: '',
         },
         onSubmit: (values, {resetForm, setSubmitting}) => {
-            dispatch(TRACKING_ACTION_CREATORS.track({trackingID: values.tracking, resetForm, setSubmitting, navigate, showMessage}));
+            dispatch(TRACKING_ACTION_CREATORS.track({
+                trackingID: values.tracking,
+                resetForm,
+                setSubmitting,
+                navigate,
+                showMessage
+            }));
         },
         validateOnBlur: true,
         validateOnChange: true,
@@ -94,7 +103,12 @@ const HomePage = () => {
                                         Gold Star Shipping and Security
                                     </Typography>
                                     <form autoComplete="off" onSubmit={trackingFormik.handleSubmit}>
-                                        <Card variant="outlined" sx={{backgroundColor: 'background.transparent'}}>
+                                        <Card
+                                            variant="outlined"
+                                            sx={{
+                                                backgroundColor: 'background.transparent',
+                                                backdropFilter: "blur(35px)"
+                                            }}>
                                             <CardContent>
                                                 {authError && (
                                                     <Alert severity="error">
@@ -131,7 +145,7 @@ const HomePage = () => {
                                                                             cursor: 'pointer',
                                                                             color: 'secondary.main',
                                                                             padding: 1,
-                                                                            fontSize: 24,
+                                                                            fontSize: 32,
                                                                         }}
                                                                     />
                                                                 </InputAdornment>
@@ -155,7 +169,7 @@ const HomePage = () => {
                                                     </FormControl>
                                                 </Box>
 
-                                                <LoadingButton
+                                                <Button
                                                     type="submit"
                                                     size="large"
                                                     color="secondary"
@@ -164,16 +178,10 @@ const HomePage = () => {
                                                         py: 1.2
                                                     }}
                                                     fullWidth={true}
-                                                    loadingPosition="start"
-                                                    startIcon={shipmentLoading ?
-                                                        <CircularProgress color="secondary"/> : null}
-                                                    loadingIndicator={shipmentLoading ?
-                                                        <CircularProgress color="secondary"/> : null}
-                                                    loading={shipmentLoading}
                                                     variant="contained"
                                                     disableElevation={true}>
-                                                    {shipmentLoading ? 'Tracking...' : 'Track'}
-                                                </LoadingButton>
+                                                    {shipmentLoading ? <CircularProgress color="secondary"/> : 'Track'}
+                                                </Button>
                                             </CardContent>
                                         </Card>
                                     </form>
@@ -183,7 +191,13 @@ const HomePage = () => {
                     </Box>}
                 image={banner}
                 backgroundColor="#000000"/>
-            <Box sx={{backgroundColor: 'background.paper', minHeight: '50vh', py: 5, display: 'flex', alignItems: 'center'}}>
+            <Box sx={{
+                backgroundColor: 'background.paper',
+                minHeight: '50vh',
+                py: 5,
+                display: 'flex',
+                alignItems: 'center'
+            }}>
                 <Container>
                     <Grid container={true} spacing={4}>
                         <Grid item={true} xs={12} md={4}>
@@ -226,7 +240,7 @@ const HomePage = () => {
                                                                         cursor: 'pointer',
                                                                         color: 'secondary.main',
                                                                         padding: 1,
-                                                                        fontSize: 24,
+                                                                        fontSize: 32,
                                                                     }}
                                                                 />
                                                             </InputAdornment>
@@ -272,7 +286,7 @@ const HomePage = () => {
                                                                             cursor: 'pointer',
                                                                             color: 'secondary.main',
                                                                             padding: 1,
-                                                                            fontSize: 24,
+                                                                            fontSize: 32,
                                                                         }}
                                                                     /> :
                                                                     <Visibility
@@ -281,7 +295,7 @@ const HomePage = () => {
                                                                             cursor: 'pointer',
                                                                             color: 'secondary.main',
                                                                             padding: 1,
-                                                                            fontSize: 24,
+                                                                            fontSize: 32,
                                                                         }}
                                                                     />}
                                                             </InputAdornment>

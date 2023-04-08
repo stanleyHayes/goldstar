@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 const DesktopFooter = () => {
     return (
-        <Box sx={{backgroundColor: 'background.transparent', py: 2}}>
+        <Box sx={{backgroundColor: 'background.dark', py: 2}}>
             <Container>
                 <Grid container={true} spacing={4}>
                     <Grid xs={3} item={true}>

@@ -1,4 +1,4 @@
-import {Box, Divider, SwipeableDrawer} from "@mui/material";
+import {Box, Divider, Drawer, SwipeableDrawer} from "@mui/material";
 import Header from "../headers/header";
 import SidebarContent from "../sidebar/sidebar-content";
 import {useDispatch, useSelector} from "react-redux";
@@ -11,12 +11,13 @@ const Layout = ({children}) => {
     const dispatch = useDispatch();
 
     return (
-        <Box sx={{
-            backgroundColor: 'background.default',
-            minHeight: '100vh',
-            display: 'flex',
-            flexDirection: 'column'
-        }}>
+        <Box
+            sx={{
+                backgroundColor: 'background.default',
+                minHeight: '100vh',
+                display: 'flex',
+                flexDirection: 'column'
+            }}>
             <Box>
                 <Header/>
             </Box>
@@ -24,12 +25,11 @@ const Layout = ({children}) => {
                 {children}
             </Box>
             <Box>
-                <Divider light={true} variant="fullWidth" />
+                <Divider light={true} variant="fullWidth"/>
                 <Footer/>
             </Box>
 
             <SwipeableDrawer
-                anchor="left"
                 onOpen={() => dispatch(openDrawer())}
                 open={drawerOpen}
                 onClose={() => dispatch(closeDrawer())}>

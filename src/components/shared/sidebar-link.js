@@ -1,20 +1,19 @@
 import {Link} from "react-router-dom";
 import {Button, Stack} from "@mui/material";
 import {useDispatch} from "react-redux";
-import {changePath, closeDrawer} from "../../redux/features/ui/ui-slice";
-import {ChevronRight} from "@mui/icons-material";
+import {closeDrawer} from "../../redux/features/ui/ui-slice";
 
 const SidebarLink = ({path, label, active, icon}) => {
 
     const dispatch = useDispatch();
 
     const handleClick = () => {
-        dispatch(changePath(path));
         dispatch(closeDrawer());
     }
     return (
         <Link to={path} onClick={handleClick} style={{textDecoration: 'none'}}>
             <Stack
+                spacing={2}
                 sx={{
                     justifyContent: 'flex-start',
                     borderLeftWidth: active ? 3 : 0,
@@ -23,10 +22,10 @@ const SidebarLink = ({path, label, active, icon}) => {
                     backgroundColor: active ? 'light.secondary' : false,
                     px: 2
                 }}
-                direction="row" justifyContent="space-between" alignItems="center">
+                direction="row" justifyContent="flex-start" alignItems="center">
+                {icon}
                 <Button
                     fullWidth={true}
-                    startIcon={icon}
                     size="large"
                     variant="text"
                     sx={{
@@ -37,14 +36,6 @@ const SidebarLink = ({path, label, active, icon}) => {
                     }}>
                     {label}
                 </Button>
-                <ChevronRight
-                    sx={{
-                        cursor: 'pointer',
-                        color: active ? 'secondary.main': 'text.primary',
-                        borderRadius: '1%',
-                        padding: 1,
-                        fontSize: 24,
-                    }}/>
             </Stack>
         </Link>
     )

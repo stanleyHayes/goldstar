@@ -92,7 +92,7 @@ const DesktopHeader = () => {
                                             cursor: 'pointer',
                                             color: 'secondary.main',
                                             padding: 1,
-                                            fontSize: 18,
+                                            fontSize: 32,
                                             backgroundColor: 'light.secondary'
                                         }}/>
                                 </Badge>
@@ -102,7 +102,7 @@ const DesktopHeader = () => {
                                         cursor: 'pointer',
                                         color: 'secondary.main',
                                         padding: 1,
-                                        fontSize: 18,
+                                        fontSize: 32,
                                         backgroundColor: 'light.secondary'
                                     }}/>
                                 <Menu
@@ -197,7 +197,7 @@ const DesktopHeader = () => {
                                                             color: 'secondary.main',
                                                             padding: 1,
                                                             borderRadius: '25%',
-                                                            fontSize: 18,
+                                                            fontSize: 32,
                                                         }}/>}>
                                                 Playlists
                                             </Button>
@@ -248,7 +248,7 @@ const DesktopHeader = () => {
                                     cursor: 'pointer',
                                     color: 'secondary.main',
                                     padding: 1,
-                                    fontSize: 18,
+                                    fontSize: 32,
                                     borderRadius: '25%',
                                     backgroundColor: 'light.secondary'
                                 }}/>
@@ -259,7 +259,7 @@ const DesktopHeader = () => {
                                     cursor: 'pointer',
                                     color: 'secondary.main',
                                     padding: 1,
-                                    fontSize: 18,
+                                    fontSize: 32,
                                     borderRadius: '25%',
                                     backgroundColor: 'light.secondary'
                                 }}/>

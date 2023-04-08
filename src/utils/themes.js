@@ -12,23 +12,24 @@ const lightTheme = createTheme({
             main: '#BBA14f'
         },
         text: {
-            primary: '#384054',
-            secondary: '#b0b7c9',
+            primary: "#0b1d3c",
+            secondary: "#9aa2ae",
             accent: '#BBA14f',
             title: '#384054'
         },
         background: {
-            default: 'rgb(228, 235, 241)',
-            paper: '#ffffff',
-            transparent: 'rgba(45,51,59,0.50)'
+            default: "#ECECEC",
+            paper: "#FFFFFF",
+            dark: "#E1E1E1",
+            transparent: 'rgba(255,255,255,0.10)'
         },
         light: {
-            secondary: 'rgba(187,161,79,0.3)'
+            secondary: 'rgba(187,161,79,0.1)'
         },
         mode: "light"
     },
     shape: {
-        borderRadius: 4
+        borderRadius: 0
     }
 });
 
@@ -44,23 +45,24 @@ const darkTheme = createTheme({
             main: '#BBA14f'
         },
         text: {
-            primary: '#cfd1d6',
-            secondary: '#717488',
+            primary: "#f4f4f4",
+            secondary: "#6a6a6a",
             accent: '#BBA14f',
             title: '#dcdce0'
         },
         background: {
-            default: '#121212',
-            paper: '#2d333b',
-            transparent: 'rgba(45,51,59,0.50)'
+            default: "#1A1A1A",
+            paper: "#202020",
+            dark: "#121212",
+            transparent: 'rgba(0, 0, 0, 0.10)'
         },
         light: {
-            secondary: 'rgba(187,161,79,0.3)'
+            secondary: 'rgba(187,161,79,0.1)'
         },
         mode: 'dark'
     },
     shape: {
-        borderRadius: 4
+        borderRadius: 0
     }
 });
 

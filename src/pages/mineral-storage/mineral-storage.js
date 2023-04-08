@@ -17,7 +17,7 @@ const MineralStoragePage = () => {
                 minHeight: '50vh',
                 display: 'flex',
                 alignItems: 'center',
-                backgroundColor: 'background.default',
+                backgroundColor: 'background.paper',
                 py: 4
             }}>
                 <Container maxWidth="md">
@@ -37,7 +37,7 @@ const MineralStoragePage = () => {
                 minHeight: '50vh',
                 display: 'flex',
                 alignItems: 'center',
-                backgroundColor: 'background.paper',
+                backgroundColor: 'background.default',
                 py: 4
             }}>
                 <Container maxWidth="md">
@@ -83,7 +83,7 @@ const MineralStoragePage = () => {
                 minHeight: '50vh',
                 display: 'flex',
                 alignItems: 'center',
-                backgroundColor: 'background.default',
+                backgroundColor: 'background.paper',
                 py: 4
             }}>
                 <Container maxWidth="md">

@@ -25,7 +25,7 @@ const MobileFooter = () => {
                     </AccordionSummary>
                     <AccordionDetails>
                         <Stack direction="column" spacing={1}>
-                            <MUILink href="https://passport.mfa.gov.gh/" target="_blank" underline="none">
+                            <MUILink href="#" target="_blank" underline="none">
                                 <Button endIcon={<OpenInNew/>} size="small"
                                         sx={{
                                             color: 'text.secondary',

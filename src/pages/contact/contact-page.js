@@ -58,7 +58,7 @@ const ContactPage = () => {
         validationSchema: yup.object({
             email: yup.string().email('Invalid email').required('email required'),
             name: yup.string().required('name required'),
-            phone: yup.string().phone('Invalid phone').required('phone required'),
+            phone: yup.string().required('phone required'),
             subject: yup.string().required('subject required'),
             message: yup.string().required('Message required'),
         })
@@ -94,7 +94,7 @@ const ContactPage = () => {
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 padding: 1,
-                                                fontSize: 18,
+                                                fontSize: 32,
                                                 borderRadius: '25%',
                                                 backgroundColor: 'light.secondary'
                                             }}/>
@@ -112,7 +112,7 @@ const ContactPage = () => {
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 padding: 1,
-                                                fontSize: 18,
+                                                fontSize: 32,
                                                 borderRadius: '25%',
                                                 backgroundColor: 'light.secondary'
                                             }}/>
@@ -129,7 +129,7 @@ const ContactPage = () => {
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 padding: 1,
-                                                fontSize: 18,
+                                                fontSize: 32,
                                                 borderRadius: '25%',
                                                 backgroundColor: 'light.secondary'
                                             }}/>
@@ -173,7 +173,7 @@ const ContactPage = () => {
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 padding: 1,
-                                                fontSize: 18,
+                                                fontSize: 32,
                                                 borderRadius: '25%',
                                                 backgroundColor: 'light.secondary'
                                             }}/>
@@ -192,7 +192,7 @@ const ContactPage = () => {
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 padding: 1,
-                                                fontSize: 18,
+                                                fontSize: 32,
                                                 borderRadius: '25%',
                                                 backgroundColor: 'light.secondary'
                                             }}/>
@@ -209,7 +209,7 @@ const ContactPage = () => {
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 padding: 1,
-                                                fontSize: 18,
+                                                fontSize: 32,
                                                 borderRadius: '25%',
                                                 backgroundColor: 'light.secondary'
                                             }}/>
@@ -253,7 +253,7 @@ const ContactPage = () => {
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 padding: 1,
-                                                fontSize: 18,
+                                                fontSize: 32,
                                                 borderRadius: '25%',
                                                 backgroundColor: 'light.secondary'
                                             }}/>
@@ -274,7 +274,7 @@ const ContactPage = () => {
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 padding: 1,
-                                                fontSize: 18,
+                                                fontSize: 32,
                                                 borderRadius: '25%',
                                                 backgroundColor: 'light.secondary'
                                             }}/>
@@ -291,7 +291,7 @@ const ContactPage = () => {
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 padding: 1,
-                                                fontSize: 18,
+                                                fontSize: 32,
                                                 borderRadius: '25%',
                                                 backgroundColor: 'light.secondary'
                                             }}/>
@@ -335,7 +335,7 @@ const ContactPage = () => {
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 padding: 1,
-                                                fontSize: 18,
+                                                fontSize: 32,
                                                 borderRadius: '25%',
                                                 backgroundColor: 'light.secondary'
                                             }}/>
@@ -354,7 +354,7 @@ const ContactPage = () => {
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 padding: 1,
-                                                fontSize: 18,
+                                                fontSize: 32,
                                                 borderRadius: '25%',
                                                 backgroundColor: 'light.secondary'
                                             }}/>
@@ -371,7 +371,7 @@ const ContactPage = () => {
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 padding: 1,
-                                                fontSize: 18,
+                                                fontSize: 32,
                                                 borderRadius: '25%',
                                                 backgroundColor: 'light.secondary'
                                             }}/>
@@ -450,7 +450,7 @@ const ContactPage = () => {
                                                                         cursor: 'pointer',
                                                                         color: 'secondary.main',
                                                                         padding: 1,
-                                                                        fontSize: 24,
+                                                                        fontSize: 32,
                                                                     }}
                                                                 />
                                                             </InputAdornment>
@@ -495,7 +495,7 @@ const ContactPage = () => {
                                                                         cursor: 'pointer',
                                                                         color: 'secondary.main',
                                                                         padding: 1,
-                                                                        fontSize: 24,
+                                                                        fontSize: 32,
                                                                     }}
                                                                 />
                                                             </InputAdornment>

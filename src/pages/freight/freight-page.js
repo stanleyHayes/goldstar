@@ -139,7 +139,7 @@ const FreightPage = () => {
                                     }}>
                                         AIR FREIGHT
                                     </Typography>
-                                    <Typography variant="body2" sx={{color: 'text.primary'}}>
+                                    <Typography variant="body2" sx={{color: 'text.secondary'}}>
                                         Gold Star Security and Shipping Company Shipping Dept is equipped with the right
                                         expertise, experience and capacity to ensure the safe handling and appropriate
                                         transportation of your valuable shipments that may range from large scale
@@ -276,10 +276,10 @@ const FreightPage = () => {
             </Box>
             <Box sx={{minHeight: '50vh', py: 5, display: 'flex', alignItems: 'center', backgroundColor: 'background.paper'}}>
                 <Container>
-                    <Typography sx={{color: 'secondary.main', mb: 2}} variant="h5">
+                    <Typography sx={{color: 'secondary.main', mb: 2, textTransform: "uppercase"}} variant="h5">
                         We are Fastest and most reliable courier service
                     </Typography>
-                    <Typography sx={{color: 'secondary.main', mb: 2}} variant="body2">
+                    <Typography sx={{color: 'text.primary'}} variant="body2">
                         We are determined to set ourselves apart as the fastest and most reliable courier service in
                         United Kingdom, and across the world. In order to do that, we will continue to work very hard to
                         ensure that vital business and personal packages go where they need to go and get there on time,

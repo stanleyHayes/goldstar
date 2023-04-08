@@ -29,8 +29,8 @@ const MobileHeader = () => {
                             borderBottomRightRadius: 0,
                             borderBottomLeftRadius: 32,
                             borderTopLeftRadius: 32,
-                            padding: 0.5,
-                            fontSize: 20,
+                            padding: 1,
+                            fontSize: 32,
                             backgroundColor: 'light.secondary'
                         }}/>
                     <Box>
