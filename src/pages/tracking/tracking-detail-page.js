@@ -351,6 +351,9 @@ const TrackingDetailPage = () => {
                                         return (
                                             <VerticalTimelineElement
                                                 key={index}
+                                                iconStyle={{
+                                                    backgroundColor: theme.palette.background.paper
+                                                }}
                                                 icon={<SpatialTracking color="secondary"/>}
                                                 date={
                                                     <Avatar sx={{backgroundColor: 'light.secondary'}}>
