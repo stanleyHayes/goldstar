@@ -16,10 +16,12 @@ import {
     InputLabel,
     OutlinedInput,
     Stack,
+    Alert,
+    AlertTitle,
     Typography
 } from "@mui/material";
 import boxes from "../../assets/images/Shipping-Boxes-Around-Globe-Feature.jpg";
-import {Alert, AlertTitle, LoadingButton} from "@mui/lab";
+import {LoadingButton} from "@mui/lab";
 import {ConfirmationNumber, InfoOutlined, Share} from "@mui/icons-material";
 import {useDispatch, useSelector} from "react-redux";
 import {useFormik} from "formik";

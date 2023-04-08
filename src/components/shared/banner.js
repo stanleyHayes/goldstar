@@ -9,7 +9,7 @@ const Banner = ({backgroundImage, title, alt, links}) => {
             sx={{
                 position: 'relative',
                 width: '100%',
-                height: {xs: '80vh', md: '70vh', lg: '60vh'},
+                height: {xs: '50vh', md: '70vh', lg: '60vh'},
                 backgroundColor: 'rgba(255, 255, 255, .35)',
             }}
             pt={4}
@@ -47,7 +47,7 @@ const Banner = ({backgroundImage, title, alt, links}) => {
                                 <Link
                                     key={link.link}
                                     to={link.link}
-                                    sx={{textDecoration: 'none'}}>
+                                    style={{textDecoration: 'none'}}>
                                     <Typography
                                         pt={0.5}
                                         pb={0.5}

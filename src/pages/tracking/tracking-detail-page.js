@@ -47,6 +47,7 @@ const TrackingDetailPage = () => {
             trackingID: tracking,
             showMessage
         }));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [tracking]);
 
     const {shipment, shipmentLoading, shipmentError} = useSelector(selectTracking);
