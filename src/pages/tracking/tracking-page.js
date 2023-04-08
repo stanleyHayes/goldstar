@@ -126,20 +126,20 @@ const TrackingPage = () => {
                         <Grid container={true} spacing={5}>
                             <Grid item={true} xs={12} md={6}>
                                 <Box sx={{}}>
-                                    <form autoComplete="off" /*onSubmit={formik.handleSubmit}*/>
+                                    <form autoComplete="off" onSubmit={formik.handleSubmit}>
                                         <Card variant="outlined" sx={{height: '100%'}}>
                                             <CardContent>
-                                                {/*{shipmentError && (*/}
-                                                {/*    <Alert sx={{mb: 2}} severity="error">*/}
-                                                {/*        <AlertTitle>{shipmentError}</AlertTitle>*/}
-                                                {/*    </Alert>*/}
-                                                {/*)}*/}
+                                                {shipmentError && (
+                                                    <Alert sx={{mb: 2}} severity="error">
+                                                        <AlertTitle>{shipmentError}</AlertTitle>
+                                                    </Alert>
+                                                )}
 
-                                                {/*{shipmentMessage && (*/}
-                                                {/*    <Alert sx={{mb: 2}} severity="success">*/}
-                                                {/*        <AlertTitle>{shipmentMessage}</AlertTitle>*/}
-                                                {/*    </Alert>*/}
-                                                {/*)}*/}
+                                                {shipmentMessage && (
+                                                    <Alert sx={{mb: 2}} severity="success">
+                                                        <AlertTitle>{shipmentMessage}</AlertTitle>
+                                                    </Alert>
+                                                )}
 
                                                 <Box mb={4}>
                                                     <Typography

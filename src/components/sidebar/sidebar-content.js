@@ -1,4 +1,4 @@
-import {Box, SliderTrack, Stack} from "@mui/material";
+import {Box, Stack} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
 import {closeDrawer, selectUI, toggleTheme} from "../../redux/features/ui/ui-slice";
 import SidebarLink from "../shared/sidebar-link";
@@ -7,7 +7,9 @@ import {
     Close,
     ContactPage,
     ContactPageOutlined,
-    DarkMode, Escalator, EscalatorOutlined,
+    DarkMode,
+    Escalator,
+    EscalatorOutlined,
     Home,
     HomeOutlined,
     LightMode,

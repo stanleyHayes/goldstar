@@ -1,4 +1,4 @@
-import {Box, Divider, Drawer, SwipeableDrawer} from "@mui/material";
+import {Box, Divider, SwipeableDrawer} from "@mui/material";
 import Header from "../headers/header";
 import SidebarContent from "../sidebar/sidebar-content";
 import {useDispatch, useSelector} from "react-redux";
